@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 20</title>
+</head>
+<body>
+    <div class="text-container">
+        <h1>
+            What would I&nbsp;<span id="give">give</span>
+        </h1>
+        <span id="top-text"></span>
+    </div>
+    <span id="bottom-text"></span>
+    <span id="left-text"></span>
+
+<style>
+    body {
+        background: linear-gradient(to bottom, #FFFFFF 0%, #E2F4FF 25%, #BEE7FF 100%);
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .text-container {
+        position: absolute;
+        top: 0px;
+        left: 125px;
+        display: flex;
+        align-items: center;
+    }
+
+    h1, #bottom-text {
+        font-family: 'Vollkorn', serif;
+        font-style: italic;
+        font-size: 120px;
+        color: transparent;
+        -webkit-text-stroke: 2px #0F52BA;
+        cursor: pointer;
+        white-space: nowrap;
+        font-weight: 600;
+    }
+
+    #give, #pay {
+        color: transparent;
+        -webkit-text-stroke: 2px #0F52BA;
+        transition: color 0.5s ease;
+        font-weight: 600;
+    }
+
+    #top-text, #left-text {
+        font-family: 'Vollkorn', serif;
+        font-style: italic;
+        font-size: 50px;
+        color: #0F52BA;
+        opacity: 0;
+        text-align: right;
+        transition: opacity 0.25s ease;
+        margin-left: 80px;
+        white-space: nowrap;
+    }
+
+    #bottom-text {
+        position: absolute;
+        bottom: 50px;
+        left: 680px;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        cursor: pointer;
+    }
+
+    #left-text {
+        text-align: left;
+        position: absolute;
+        left: 100px;
+        top: 750px;
+    }
+</style>
+<script>
+    const giveText = document.getElementById("give");
+    const topText = document.getElementById("top-text");
+    const bottomText = document.getElementById("bottom-text");
+    const payText = document.getElementById("pay");
+    const leftText = document.getElementById("left-text");
+    let firstClick = false;
+    let secondClick = false;
+    let allEffectsDone = false;
+
+    document.querySelector("h1").addEventListener("click", () => {
+        if (!firstClick) {
+            giveText.style.color = "#0F52BA";
+            topText.innerHTML = "if I could live <br> out of these waters?";
+            topText.style.opacity = "1";
+            firstClick = true;
+
+            setTimeout(() => {
+                bottomText.innerHTML = "What would I <span id='pay'>pay</span>";
+                bottomText.style.opacity = "1";
+            }, 1000);
+        }
+    });
+
+    bottomText.addEventListener("click", () => {
+        const payElement = document.getElementById("pay");
+        if (!secondClick) {
+            payElement.style.color = "#0F52BA";
+            leftText.innerHTML = "to spend a day <br> warm on the sand?";
+            leftText.style.opacity = "1";
+            secondClick = true;
+            
+            setTimeout(() => {
+                allEffectsDone = true;
+            }, 500);
+        }
+    });
+
+    document.body.addEventListener("click", () => {
+        if (allEffectsDone) {
+            window.location.href = "page21.html";
+        }
+    });
+</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 20</title>
+</head>
+<body>
+    <div class="text-container">
+        <h1>
+            What would I&nbsp;<span id="give">give</span>
+        </h1>
+        <span id="top-text"></span>
+    </div>
+    <span id="bottom-text"></span>
+    <span id="left-text"></span>
+
+<style>
+    body {
+        background: linear-gradient(to bottom, #FFFFFF 0%, #E2F4FF 25%, #BEE7FF 100%);
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .text-container {
+        position: absolute;
+        top: 0px;
+        left: 125px;
+        display: flex;
+        align-items: center;
+    }
+
+    h1, #bottom-text {
+        font-family: 'Vollkorn', serif;
+        font-style: italic;
+        font-size: 120px;
+        color: transparent;
+        -webkit-text-stroke: 2px #0F52BA;
+        cursor: pointer;
+        white-space: nowrap;
+        font-weight: 600;
+    }
+
+    #give, #pay {
+        color: transparent;
+        -webkit-text-stroke: 2px #0F52BA;
+        transition: color 0.5s ease;
+        font-weight: 600;
+    }
+
+    #top-text, #left-text {
+        font-family: 'Vollkorn', serif;
+        font-style: italic;
+        font-size: 50px;
+        color: #0F52BA;
+        opacity: 0;
+        text-align: right;
+        transition: opacity 0.25s ease;
+        margin-left: 80px;
+        white-space: nowrap;
+    }
+
+    #bottom-text {
+        position: absolute;
+        bottom: 50px;
+        left: 680px;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        cursor: pointer;
+    }
+
+    #left-text {
+        text-align: left;
+        position: absolute;
+        left: 100px;
+        top: 750px;
+    }
+</style>
+<script>
+    const giveText = document.getElementById("give");
+    const topText = document.getElementById("top-text");
+    const bottomText = document.getElementById("bottom-text");
+    const payText = document.getElementById("pay");
+    const leftText = document.getElementById("left-text");
+    let firstClick = false;
+    let secondClick = false;
+    let allEffectsDone = false;
+
+    document.querySelector("h1").addEventListener("click", () => {
+        if (!firstClick) {
+            giveText.style.color = "#0F52BA";
+            topText.innerHTML = "if I could live <br> out of these waters?";
+            topText.style.opacity = "1";
+            firstClick = true;
+
+            setTimeout(() => {
+                bottomText.innerHTML = "What would I <span id='pay'>pay</span>";
+                bottomText.style.opacity = "1";
+            }, 1000);
+        }
+    });
+
+    bottomText.addEventListener("click", () => {
+        const payElement = document.getElementById("pay");
+        if (!secondClick) {
+            payElement.style.color = "#0F52BA";
+            leftText.innerHTML = "to spend a day <br> warm on the sand?";
+            leftText.style.opacity = "1";
+            secondClick = true;
+            
+            setTimeout(() => {
+                allEffectsDone = true;
+            }, 500);
+        }
+    });
+
+    document.body.addEventListener("click", () => {
+        if (allEffectsDone) {
+            window.location.href = "page21.html";
+        }
+    });
+</script>
+</body>
+</html>
