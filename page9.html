@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 9</title>
+</head>
+
+<body>
+    <h1>I've got<br><span id="gadgets">gadgets</span>&nbsp;and <span id="gizmos">gizmos</span><br>a plenty</h1>
+    <h2>I've got<br><span id="whozits">whozits</span>&nbsp;and <span id="whatzits">whatzits</span><br>galore</h2>
+
+    <div id="glowing-circle" class="glowing-circle"></div>
+
+<style>
+    body {
+        background: #0F52BA;
+    }
+
+    h1 {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 40px;
+        position: absolute;
+        top: 300px;
+        left: 200px;
+        color: white;
+    }
+
+    h2 {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 40px;
+        text-align: right;
+        position: absolute;
+        top: 400px;
+        left: 1100px;
+        color: white;
+    }
+
+    #gadgets {
+        transition: font-size 1s ease, font-family 1s ease, color 1s ease;
+        position: relative;
+        z-index: 5;
+        cursor: pointer;
+        color: white;
+        font-size: 40px;
+        font-family: 'Vollkorn', system-ui;
+    }
+
+    #gizmos {
+        transition: font-size 1s ease, font-family 1s ease, color 1s ease;
+        position: relative;
+        z-index: 5;
+        font-size: 40px;
+        font-family: 'Vollkorn', system-ui;
+        color: white;
+    }
+
+    #whatzits {
+        transition: font-size 1s ease, font-family 1s ease, color 1s ease;
+        position: relative;
+        z-index: 10;
+        cursor: pointer;
+        font-size: 40px;
+        font-family: 'Vollkorn', system-ui;
+        color: white;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+        50% {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+        100% {
+            transform: scale(1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+    }
+
+    .glowing-circle {
+        width: 125px;
+        height: 125px;
+        border-radius: 50%;
+        background-color: white;
+        position: absolute;
+        top: 450px;
+        left: 800px;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.6);
+        filter: blur(8px);
+        cursor: pointer;
+        transition: all 1s ease;
+        z-index: 0;
+        animation: pulse 2s infinite;
+    }
+</style>
+<script>
+    let isClicked = false;
+
+    window.addEventListener('load', function() {
+        setTimeout(() => {
+            const glowingCircle = document.getElementById('glowing-circle');
+            glowingCircle.style.display = 'block';
+        }, 250);
+    });
+
+    document.getElementById('glowing-circle').addEventListener('click', function() {
+        const glowingCircle = this;
+        const gadgets = document.getElementById('gadgets');
+        const gizmos = document.getElementById('gizmos');
+
+        if (!isClicked) {
+            glowingCircle.style.top = '425px'; 
+            glowingCircle.style.left = '265px';
+            glowingCircle.style.width = '250px';
+            glowingCircle.style.height = '125px';
+
+            glowingCircle.style.zIndex = '-1';
+            glowingCircle.style.animation = 'none';
+
+            gadgets.style.fontSize = '50px';
+            gadgets.style.fontFamily = 'Parisienne, system-ui';
+            gadgets.style.color = '#00C7C7';
+
+            isClicked = true;
+        }
+    });
+
+    document.getElementById('gadgets').addEventListener('mouseover', function() {
+        const glowingCircle = document.getElementById('glowing-circle');
+        const gizmos = document.getElementById('gizmos');
+
+        this.style.transition = 'none';
+        this.style.fontSize = '40px';
+        this.style.fontFamily = 'Vollkorn, system-ui';
+        this.style.color = 'white';
+
+        glowingCircle.style.left = '480px';
+
+        gizmos.style.fontSize = '50px';
+        gizmos.style.fontFamily = 'Parisienne, system-ui';
+        gizmos.style.color = '#00C7C7';
+
+        setTimeout(() => {
+            this.style.transition = 'font-size 1s ease, font-family 1s ease, color 1s ease';
+        }, 100);
+    });
+
+    document.getElementById('gadgets').addEventListener('mouseover', function() {
+        if (isClicked) {
+            const glowingCircle = document.getElementById('glowing-circle');
+
+            glowingCircle.style.top = '425px';  
+            glowingCircle.style.left = '465px';
+
+            const gadgets = document.getElementById('gadgets');
+            gadgets.style.fontSize = '40px';
+            gadgets.style.fontFamily = 'Vollkorn, system-ui';
+            gadgets.style.color = 'white';
+
+            const gizmos = document.getElementById('gizmos');
+            gizmos.style.fontSize = '50px';
+            gizmos.style.fontFamily = 'Parisienne, system-ui';
+            gizmos.style.color = '#00C7C7';
+        }
+    });
+
+    document.getElementById('gizmos').addEventListener('mouseover', function() {
+        if (isClicked) {
+            const glowingCircle = document.getElementById('glowing-circle');
+
+            glowingCircle.style.top = '525px';  
+            glowingCircle.style.left = '1150px';
+
+            const gizmos = document.getElementById('gizmos');
+            gizmos.style.transition = 'none';
+            gizmos.style.fontSize = '40px';
+            gizmos.style.fontFamily = 'Vollkorn, system-ui';
+            gizmos.style.color = 'white';
+
+            const whozits = document.getElementById('whozits');
+            whozits.style.fontSize = '50px';
+            whozits.style.fontFamily = 'Parisienne, system-ui';
+            whozits.style.color = '#00C7C7';
+
+            setTimeout(() => {
+                gizmos.style.transition = 'font-size 1s ease, font-family 1s ease, color 1s ease';
+            }, 100);
+        }
+    });
+
+    document.getElementById('whozits').addEventListener('mouseover', function() {
+        if (isClicked) {
+            const glowingCircle = document.getElementById('glowing-circle');
+
+            glowingCircle.style.top = '525px';  
+            glowingCircle.style.left = '1400px';
+
+            const whozits = document.getElementById('whozits');
+            whozits.style.transition = 'none';
+            whozits.style.fontSize = '40px';
+            whozits.style.fontFamily = 'Vollkorn, system-ui';
+            whozits.style.color = 'white';
+
+            const whatzits = document.getElementById('whatzits');
+            whatzits.style.fontSize = '50px';
+            whatzits.style.fontFamily = 'Parisienne, system-ui';
+            whatzits.style.color = '#00C7C7';
+
+            setTimeout(() => {
+                whozits.style.transition = 'font-size 1s ease, font-family 1s ease, color 1s ease';
+            }, 100);
+        }
+    });
+    
+    document.getElementById('whatzits').addEventListener('click', function() {
+            window.location.href = 'page10.html';
+        });
+</script>
+</body>
+</html>
