@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 15</title>
+</head>
+<body>
+    <h1 id="hover-text" class="original-text">Walking around on those,<br>what do you call'em?</h1>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Vollkorn:wght@400&family=Playfair+Display:wght@800&display=swap');
+    
+    body {
+        background: #0F52BA;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    h1 {
+        font-family: "Vollkorn", system-ui;
+        font-size: 50px;
+        font-weight: 100;
+        color: white;
+        text-align: center;
+        line-height: 50px;
+        position: relative;
+        transition: opacity 0.5s ease;
+        cursor: pointer;
+    }
+
+    .new-text {
+        font-family: "Parisienne", system-ui;
+        font-size: 200px;
+        color: #FF66B2;
+        position: absolute;
+        top: 300px;
+        left: 850px;
+        transform: translateX(-50%);
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+</style>
+<script>
+    const hoverText = document.getElementById('hover-text');
+
+    hoverText.addEventListener('mouseenter', () => {
+        hoverText.classList.add('new-text');
+        hoverText.innerHTML = "Oh, feet";
+    });
+
+    hoverText.addEventListener('mouseleave', () => {
+        hoverText.classList.add('new-text');
+        hoverText.style.visibility = 'visible';
+        hoverText.style.opacity = 1;
+    });
+    
+    hoverText.addEventListener('click', () => {
+        window.location.href = 'page16.html';
+    });
+</script>
+</body>
+</html>
