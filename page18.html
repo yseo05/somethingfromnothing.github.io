@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page18</title>
+</head>
+<body>
+    <h1>UP</h1>
+    <h2>Where they walk</h2>
+
+    <div id="new-text"></div>
+
+<style>
+    body {
+        background-color: white;
+        transition: background-color 0.5s ease;
+    }
+
+    h1 {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 500px;
+        font-weight: 1000;
+        position: absolute;
+        top: -400px;
+        left: 50px;
+        color: #0F52BA;
+        cursor: pointer;
+    }
+
+    h2 {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 50px;
+        font-weight: 200;
+        position: absolute;
+        top: 25px;
+        left: 800px;
+        color: #0F52BA;
+    }
+
+    #new-text {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 50px;
+        font-weight: 200;
+        position: absolute;
+        top: 150px;
+        left: 800px;
+        color: #FFFFFF;
+        }
+</style>
+<script>
+    const h1Text = document.querySelector("h1");
+    const h2Text = document.querySelector("h2");
+    const newTextDiv = document.getElementById("new-text");
+    let clickCount = 0;
+
+    h1Text.addEventListener("click", () => {
+        clickCount++;
+    
+    if (clickCount === 1) {
+            document.body.style.backgroundColor = "#0F52BA";  // 배경색 변경
+            h1Text.style.color = "#00C7C7";
+            h2Text.style.color = "#FFFFFF";
+            newTextDiv.innerHTML = "Where they run";
+        } else if (clickCount === 2) {
+            document.body.style.backgroundColor = "#FF66B2";
+            h1Text.style.color = "#FFFFFF";
+            newTextDiv.innerHTML += "<br>Where they stay<br>all day in the sun";
+        } else if (clickCount === 3) {
+            h1Text.addEventListener('click', () => {
+                window.location.href = 'page19.html';
+            });
+        }
+    });
+</script>
+</body>
+</html>
