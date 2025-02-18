@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 24</title>
+</head>
+
+<body>
+    <h1 id="question">When's it my turn?</h1>
+    <div id="new-text-container"></div>
+
+<style>
+    body {
+        background: #0F52BA;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    h1 {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 35px;
+        font-style: italic;
+        font-weight: 100;
+        position: absolute;
+        color: white;
+        transition: opacity 1s ease;
+    }
+
+    .letter {
+        display: inline-block;
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 1s ease, transform 1s ease;
+    }
+
+    #new-text-container {
+        position: absolute;
+        bottom: 50%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .new-text {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 35px;
+        font-style: italic;
+        font-weight: 100;
+        color: white;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease, transform 1s ease;
+        cursor: pointer;
+    }
+
+    .visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .above-text {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 35px;
+        font-style: italic;
+        font-weight: 100;
+        color: white;
+        position: absolute;
+        left: 1035px;
+        transform: translateX(-50%);
+        animation: moveAbove 2s forwards;
+    }
+
+    @keyframes moveAbove {
+        0% {
+            transform: translateY(0) translateX(-50%);
+        }
+        100% {
+            transform: translateY(-60px) translateX(-50%);
+        }
+    }
+</style>
+<script>
+const questionText = document.getElementById('question');
+    const newTextContainer = document.getElementById('new-text-container');
+
+    function animateText() {
+        const letters = questionText.innerText.split('');
+        questionText.innerHTML = '';
+
+        letters.forEach((letter, index) => {
+            const span = document.createElement('span');
+            span.classList.add('letter');
+            span.textContent = letter;
+            questionText.appendChild(span);
+
+            setTimeout(() => {
+                span.style.transform = 'translateY(30px)';
+                span.style.opacity = '0';
+            }, index * 100);
+        });
+
+        setTimeout(() => {
+            const newText = document.createElement("div");
+            newText.classList.add("new-text");
+            newText.textContent = "Wouldn't I love,";
+            newTextContainer.appendChild(newText);
+
+            setTimeout(() => {
+                newText.classList.add("visible");
+            }, 100);
+        }, letters.length * 100 + 1000);
+
+        setTimeout(() => {
+            const nextText = document.createElement("div");
+            nextText.classList.add("new-text");
+            nextText.textContent = "love to explore that shore up above?";
+            newTextContainer.appendChild(nextText);
+
+            setTimeout(() => {
+                nextText.classList.add("visible");
+            }, 100);
+        }, letters.length * 100 + 1500);
+
+        setTimeout(() => {
+            const lastTextHeight = newTextContainer.lastElementChild.offsetHeight;
+            for (let i = 0; i < 4; i++) {
+                const aboveText = document.createElement("div");
+                aboveText.classList.add("above-text");
+                aboveText.textContent = "above";
+                aboveText.style.top = `${-65 + lastTextHeight + (i * 30)}px`;
+                
+                const opacityValue = (i + 1) * 0.3;
+                aboveText.style.opacity = opacityValue;
+
+                newTextContainer.appendChild(aboveText);
+            }
+        }, letters.length * 100 + 2500);
+    }
+
+    setTimeout(() => {
+        animateText();
+    }, 1000);
+
+    document.addEventListener("click", () => {
+        window.location.href = "page25.html";
+    });
+</script>
+</body>
+</html>
