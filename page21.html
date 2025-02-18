@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 21</title>
+</head>
+<body>
+    <h1 id="betcha">Bet'cha</h1>
+    <h2><span id="on">on</span> </span><span class="outlined-text" id="land">land </span><span id="they">they </span><span class="outlined-text" id="understand">understand</span></h2>
+    
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Vollkorn:wght@700&display=swap');
+    
+    body {
+        background:  #FF66B2;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    h1 {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 50px;
+        color: white;
+        background-color: #0F52BA;
+        padding: 5px 10px;
+        margin: 0;
+        top: 450px;
+        left: 350px;
+        position: absolute;
+        cursor: pointer;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+    }
+
+    h2 {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 50px;
+        color: white;
+        margin: 5px 0 0 0;
+        top: 450px;
+        left: 550px;
+        position: absolute;
+    }
+
+    .outlined-text {
+        color: transparent;
+        -webkit-text-stroke: 2px white;
+        font-weight: bold;
+    }
+
+    .filled-text {
+        color: white;
+        font-weight: bold;
+    }
+</style>
+<script>
+    const betcha = document.getElementById("betcha");
+    const onText = document.getElementById("on");
+    const landText = document.getElementById("land");
+    const theyText = document.getElementById("they");
+    const understandText = document.getElementById("understand");
+
+    let clickCount = 0;
+
+    betcha.addEventListener("click", () => {
+        clickCount++;
+
+        if (clickCount === 1) {
+            onText.classList.remove("filled-text");
+            onText.classList.add("outlined-text");
+            onText.innerText = "they";
+        } else if (clickCount === 2) {
+            landText.classList.remove("outlined-text");
+            landText.classList.add("filled-text");
+            landText.innerText = "don't ";
+        } else if (clickCount === 3) {
+            theyText.classList.remove("filled-text");
+            theyText.classList.add("outlined-text");
+            theyText.innerText = "reprimand ";
+        } else if (clickCount === 4) {
+            understandText.classList.remove("outlined-text");
+            understandText.classList.add("filled-text");
+            understandText.innerText = "their daughters ";
+        } else if (clickCount === 5) {
+            window.location.href = "page22.html";
+        }
+    });
+</script>
+</body>
+</html>
