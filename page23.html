@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 23</title>
+</head>
+<body>
+    <h1>
+        <span class="word" style="top: 800px; left: 100px;">What's</span>
+        <span class="word" style="top: 680px; left: 400px;">a fire</span>
+        <span class="word" style="top: 600px; left: 600px;">and</span>
+        <span class="word" style="top: 500px; left: 800px;">why</span>
+        <span class="word" style="top: 600px; left: 980px;">does</span>
+        <span class="word" style="top: 680px; left: 1200px;">it</span>
+        <span class="word" id="burn" style="top: 800px; left: 1280px;">burn?</span>
+    </h1>
+
+<style>
+    body {
+        background: #0F52BA;
+        margin: 0;
+        height: 100vh;
+    }
+
+    .word {
+        font-family: 'Vollkorn', system-ui;
+        font-style: italic;
+        font-weight: 500;
+        font-size: 120px;
+        position: absolute;
+        color: white;
+    }
+
+    #burn {
+        transition: font-family 0.2s ease, font-weight 0.2s ease;
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+    }
+
+    #burn.hovered {
+        font-family: 'Parisienne', system-ui;
+        font-size: 120px;
+        color: #FF66B2;
+        text-shadow: none;
+        cursor: pointer;
+    }   
+</style>
+<script>
+    const burn = document.getElementById("burn");
+
+    burn.addEventListener("mouseover", () => {
+        burn.classList.add("hovered");
+    });
+
+    burn.addEventListener("click", () => {
+        window.location.href = "page24.html";
+    });
+</script>
+</body>
+</html>
