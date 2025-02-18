@@ -29,14 +29,19 @@
     }
     .new-text {
         font-family: 'Playfair Display', system-ui;
-        font-size: 100px;
+        font-size: 50px;
         font-weight: bold;
         line-height: 100px;
         text-align: center;
         color: rgb(50, 50, 50);
         position: absolute;
         opacity: 0;
-        transition: opacity 0.25s ease-in-out;
+    }
+
+    .new-text span {
+        opacity: 0;
+        display: inline-block;
+        transition: opacity 0.1s ease-in-out;
     }
 </style>
 <script>
@@ -48,8 +53,21 @@
         if (clickCount === 1) {
             let newText = document.createElement('div');
             newText.classList.add('new-text');
-            newText.innerHTML = "I wanna be<br>where the<br>people are";
+            newText.innerHTML = "I wanna be where the people are";
+
             document.body.appendChild(newText);
+
+            let words = newText.innerHTML.split('');
+            newText.innerHTML = ''; 
+            words.forEach(function(char, index) {
+                let span = document.createElement('span');
+                span.innerHTML = char;
+                newText.appendChild(span);
+
+                setTimeout(function() {
+                    span.style.opacity = '1';
+                }, 50 * index);
+            });
 
             setTimeout(function() {
                 newText.style.opacity = '1';
