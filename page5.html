@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 5</title>
+</head>
+
+<body>
+    <h1>
+        <span class="word" style="top: 800px; left: 50px;">Wouldn't</span>
+        <span class="word" style="top: 685px; left: 325px;">you</span>
+        <span class="word" style="top: 600px; left: 400px;">think</span>
+        <span class="word" style="top: 500px; left: 550px;">I'm</span>
+        <span id="theGirl" class="word" style="top: 425px; left: 650px; cursor: pointer;">the girl</span>
+    </h1>
+
+<style>
+    body {
+        background: #0F52BA;
+        margin: 0;
+        height: 100vh;
+    }
+
+    .word {
+        font-family: 'Vollkorn', system-ui;
+        font-style: italic;
+        font-weight: 500;
+        font-size: 120px;
+        position: absolute;
+        color: white;
+        cursor: pointer;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    #theGirl {
+        animation: pulse 1s infinite;
+        cursor: pointer;
+    }
+
+    #theGirl.clicked {
+        animation: none;
+        cursor: pointer;
+    }
+</style>
+<script>
+    let clickCount = 0;
+    let everythingDisplayed = false;
+
+    document.getElementById('theGirl').addEventListener('click', function() {
+        let girlSpan = this;
+        clickCount++;
+
+        girlSpan.classList.add('clicked');
+        girlSpan.style.cursor = 'pointer';
+
+
+        if (clickCount === 1) {
+
+            girlSpan.innerHTML = girlSpan.innerHTML.replace('girl', '<span style="color:#FF66B2;">girl</span>');
+
+            const words = document.querySelectorAll('.word');
+            words.forEach(word => {
+                if (word !== girlSpan) {
+                    word.style.display = 'none';
+                }
+            });
+
+            const whoHas = document.createElement('span');
+            whoHas.id = 'whoHas';
+            whoHas.style.position = 'absolute';
+            whoHas.style.top = '525px';
+            whoHas.style.left = '800px';
+            whoHas.style.fontFamily = 'Vollkorn', 'system-ui';
+            whoHas.style.fontStyle = 'italic';
+            whoHas.style.fontSize = '120px';
+            whoHas.style.color = 'white';
+            whoHas.textContent = 'who has';
+
+            document.body.appendChild(whoHas);
+        } else if (clickCount === 2) {
+
+            girlSpan.style.display = 'none';
+            let whoHas = document.getElementById('whoHas');
+            if (whoHas) whoHas.style.display = 'none';
+
+            const newText = document.createElement('span');
+            newText.id = 'everythingText';
+            newText.style.position = 'absolute';
+            newText.style.top = '50%';
+            newText.style.left = '50%';
+            newText.style.transform = 'translate(-50%, -50%)';
+            newText.style.fontFamily = 'Parisienne', 'system-ui';
+            newText.style.fontSize = '250px';
+            newText.style.color = '#FF66B2';
+            newText.textContent = 'Everything';
+            document.body.appendChild(newText);
+
+            setTimeout(function() {
+                window.location.href = 'page6.html';
+            }, 1000);
+        }
+    });
+</script>
+</body>
+</html>
