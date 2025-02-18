@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 12</title>
+</head>
+<body>
+    <h1 id="text">Wish I could be part of that world</h1>
+    <h2>Out of the sea</h2>
+
+<style>
+    body {
+        background: #000000;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    h1 {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 40px;
+        position: absolute;
+        color: white;
+        filter: blur(15px) brightness(100);
+        z-index: 1;
+        transition: filter 1s ease; 
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+    }
+
+    h1:hover {
+        filter: blur(0);
+    }
+
+    h2 {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 25px;
+        font-style: italic;
+        font-weight: 100;
+        top: 400px;
+        position: absolute;
+        color: white;
+    }
+</style>
+<script>
+    const text = document.getElementById("text");
+
+    text.addEventListener("mouseenter", function() {
+        text.style.filter = "blur(0)";
+    });
+
+    text.addEventListener("mouseleave", function() {
+    });
+</script>
+</body>
+</html>
