@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 8</title>
+</head>
+<body>
+    <h1>
+        <span class="word" style="top: 0px; left: 1250px;">Looking</span>
+        <span class="word" style="top: 80px; left: 1100px;">around</span>
+        <span class="word" style="top: 160px; left: 1000px;">here</span>
+        <span class="word" style="top: 255px; left: 850px;">you'd</span>
+        <span id="think" class="word" style="top: 350px; left: 685px; cursor: pointer;">think</span>
+    </h1>
+
+<style>
+    body {
+        background: #FF66B2;
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .word {
+        font-family: 'Vollkorn', system-ui;
+        font-style: italic;
+        font-weight: 500;
+        font-size: 120px;
+        position: absolute;
+        color: white;
+        cursor: pointer;
+    }
+
+    #think {
+        text-shadow: 0 0 20px white;
+        transition: color 0.5s ease;
+    }
+
+    .new-text {
+        font-family: 'Vollkorn', system-ui;
+        font-style: italic;
+        font-size: 80px;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        color: white;
+        opacity: 0;
+        transition: opacity 1s ease;
+    }
+
+    .new-text2 {
+        font-family: 'Parisienne', system-ui;
+        font-size: 250px;
+        position: absolute;
+        top: 300px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #0F52BA;
+        opacity: 0;
+        transition: opacity 1s ease;
+        cursor: pointer;
+    }
+</style>
+<script>
+    document.getElementById('think').addEventListener('click', function() {
+
+        const words = document.querySelectorAll('.word');
+        words.forEach(word => {
+            word.style.display = 'none';
+        });
+
+        const newText1 = document.createElement('span');
+        newText1.classList.add('new-text');
+        newText1.textContent = 'Sure, she\'s got';
+        document.body.appendChild(newText1);
+
+        setTimeout(() => {
+            newText1.style.opacity = 1;
+        }, 100);
+
+        setTimeout(() => {
+            const newText2 = document.createElement('span');
+            newText2.classList.add('new-text2');
+            newText2.textContent = 'Everything';
+            document.body.appendChild(newText2);
+
+            setTimeout(() => {
+                newText2.style.opacity = 1;
+            }, 100);
+            
+            newText2.addEventListener('click', function() {
+                window.location.href = "page9.html";
+            });
+        }, 500);
+    });
+</script>
+</body>
+</html>
