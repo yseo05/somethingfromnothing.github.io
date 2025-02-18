@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 19</title>
+</head>
+<body>
+    <h1>Part of that world</h1>
+    <h2>Wandering free, wish I c&nbsp;o&nbsp;&nbsp;u&nbsp;&nbsp;&nbsp;l&nbsp;&nbsp;&nbsp;&nbsp;d b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e</h2>
+    <h3>
+        <span class="letter" style="top: 650px; left: 220px;">P</span>
+        <span class="letter" style="top: 650px; left: 320px;">a</span>
+        <span class="letter" style="top: 650px; left: 410px;">r</span>
+        <span class="letter" style="top: 625px; left: 480px;">t</span>
+        <span class="letter" style="top: 585px; left: 565px;">o</span>
+        <span class="letter" style="top: 550px; left: 650px;">f</span>
+        <span class="letter" style="top: 505px; left: 750px;">t</span>
+        <span class="letter" style="top: 465px; left: 805px;">h</span>
+        <span class="letter" style="top: 440px; left: 900px;">a</span>
+        <span class="letter" style="top: 415px; left: 980px;">t</span>
+        <span class="letter" style="top: 400px; left: 1065px;">w</span>
+        <span class="letter" style="top: 385px; left: 1180px;">o</span>
+        <span class="letter" style="top: 385px; left: 1265px;">r</span>
+        <span class="letter" style="top: 385px; left: 1340px;">l</span>
+        <span class="letter" style="top: 385px; left: 1385px;">d</span>
+    </h3>
+
+<style>
+    body {
+        background: linear-gradient(to bottom, #FFFFFF 0%, #E2F4FF 25%, #BEE7FF 100%);
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    h1 {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 150px;
+        top: 400px;
+        left: 100px;
+        color: #0F52BA;
+        opacity: 40%;
+        filter: blur(5px);
+        cursor: pointer;
+    }
+
+    h2 {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 40px;
+        font-weight: 100;
+        font-style: italic;
+        color: #0F52BA;
+        top: 300px;
+        left: 255px;
+        position: absolute;
+    }
+
+    .letter {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 150px;
+        position: absolute;
+        color: #0F52BA;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+</style>
+<script>
+    const h1Text = document.querySelector("h1");
+    const letters = document.querySelectorAll(".letter");
+    let isHovered = false;
+
+    h1Text.addEventListener("mouseover", () => {
+        if (!isHovered) {
+            isHovered = true;
+            letters.forEach((letter, index) => {
+                setTimeout(() => {
+                    letter.style.opacity = 1;
+                }, index * 200);
+            });
+        }
+    });
+
+    h1Text.addEventListener("mouseout", () => {
+        if (isHovered) {
+            letters.forEach(letter => {
+                letter.style.opacity = 0;
+            });
+            isHovered = false;
+        }
+    });
+
+    h1Text.addEventListener("click", () => {
+        window.location.href = "page20.html";
+    });
+</script>
+</body>
+</html>
