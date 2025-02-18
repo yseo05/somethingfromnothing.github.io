@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 11</title>
+</head>
+<body>
+    <div class="text-container"></div>
+    
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Vollkorn:wght@700&display=swap');
+    
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: black;
+        font-family: 'Vollkorn', serif;
+        text-align: left;
+        height: 100vh;
+    }
+
+    h1 {
+        position: absolute;
+        margin: 0;
+        font-size: 100px;
+        font-weight: 700;
+        letter-spacing: -2.5%;
+        line-height: 100px;
+        white-space: nowrap;
+        color: transparent;
+        -webkit-text-stroke: 1.5px white;
+    }
+    .hover-but:hover {
+        color: white !important;
+        -webkit-text-stroke: 0px !important;
+    }
+    .hover-but.clicked {
+        color: #00C7C7 !important;
+        -webkit-text-stroke: 0px !important;
+    }
+    .highlight-who {
+        color: transparent !important;
+        -webkit-text-stroke: 1.5px white !important;
+        cursor: pointer;
+    }
+    .highlight-who.active {
+        color: white !important;
+        -webkit-text-stroke: 0px !important;
+    }
+    .highlight-who.clicked {
+        color: #00C7C7 !important;
+        -webkit-text-stroke: 0px !important;
+    }
+    .highlight-cares {
+        color: transparent !important;
+        -webkit-text-stroke: 1.5px white !important;
+        cursor: pointer;
+    }
+    .highlight-cares.active {
+        color: white !important;
+        -webkit-text-stroke: 0px !important;
+    }
+    .highlight-cares.clicked {
+        color: #00C7C7 !important;
+        -webkit-text-stroke: 0px !important;
+    }
+    .highlight-no {
+        color: transparent !important;
+        -webkit-text-stroke: 1.5px white !important;
+        cursor: pointer;
+    }
+    .highlight-no.active {
+        color: white !important;
+        -webkit-text-stroke: 0px !important;
+    }
+    .highlight-no.clicked {
+        color: #00C7C7 !important;
+        -webkit-text-stroke: 0px !important;
+    }
+    .highlight-big {
+        color: transparent !important;
+        -webkit-text-stroke: 1.5px white !important;
+    }
+    .highlight-big.active {
+        color: white !important;
+        -webkit-text-stroke: 0px !important;
+    }
+    .highlight-big.clicked {
+        color: #00C7C7 !important;
+        -webkit-text-stroke: 0px !important;
+    }
+    .highlight-deal {
+        color: transparent !important;
+        -webkit-text-stroke: 1.5px white !important;
+    }
+    .highlight-deal.white {
+        color: white !important;
+        -webkit-text-stroke: 0px !important;
+    }
+    .highlight-deal.clicked {
+        color: #00C7C7 !important;
+        -webkit-text-stroke: 0px !important;
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let container = document.querySelector(".text-container");
+        let oddText = "But who cares No big deal But who cares No big deal";
+        let evenText = "No big deal But who cares No big deal But who cares";
+        let thirdLineWho;
+        let secondLineCares;
+        let seventhLineNo;
+        let ninthLineBig;
+        let tenthLineDeal;
+        
+        for (let i = 0; i < 10; i++) {
+            let line = document.createElement("h1");
+            
+            if (i === 0) {
+                line.innerHTML = oddText.replace('But', '<span class="hover-but" id="special-but">But</span>');
+            } else if (i === 2) {
+                thirdLineWho = document.createElement('span');
+                thirdLineWho.classList.add('highlight-who');
+                thirdLineWho.textContent = 'who';
+                thirdLineWho.id = "special-who";
+                line.innerHTML = oddText.replace('who', thirdLineWho.outerHTML);
+            } else if (i === 1) {
+                secondLineCares = document.createElement('span');
+                secondLineCares.classList.add('highlight-cares');
+                secondLineCares.textContent = 'cares';
+                secondLineCares.id = "special-cares";
+                line.innerHTML = evenText.replace('cares', secondLineCares.outerHTML);
+            } else if (i === 6) {
+                seventhLineNo = document.createElement('span');
+                seventhLineNo.classList.add('highlight-no');
+                seventhLineNo.textContent = "No";
+                seventhLineNo.id = "special-no";
+                line.innerHTML = oddText.replace('No', seventhLineNo.outerHTML);
+            } else if (i === 7) {
+                ninthLineBig = document.createElement('span');
+                ninthLineBig.classList.add('highlight-big');
+                ninthLineBig.textContent = "big";
+                ninthLineBig.id = "special-big";
+                line.innerHTML = evenText.replace("big", ninthLineBig.outerHTML);
+            } else if (i === 9) {
+                tenthLineDeal = document.createElement('span');
+                tenthLineDeal.classList.add('highlight-deal');
+                tenthLineDeal.textContent = "deal";
+                tenthLineDeal.id = "special-deal";
+                line.innerHTML = evenText.replace("deal", tenthLineDeal.outerHTML);
+
+            } else {
+                line.innerHTML = (i % 2 !== 0) ? evenText : oddText;
+            }
+            
+            line.style.top = (i * 100) + "px";
+            container.appendChild(line);
+        }
+        
+        let specialBut = document.getElementById("special-but");
+        let specialWho = document.getElementById("special-who");
+        let specialCares = document.getElementById("special-cares");
+        let specialNo = document.getElementById("special-no");
+        let specialBig = document.getElementById("special-big");
+        let specialDeal = document.getElementById("special-deal");
+        
+        if (specialBut) {
+            specialBut.addEventListener("click", function() {
+                this.classList.add("clicked");
+                if (specialWho) {
+                    specialWho.classList.add("active");
+                }
+            });
+        }
+        if (specialWho) {
+            specialWho.addEventListener("click", function() {
+                this.classList.add("clicked");
+                if (specialCares) {
+                    specialCares.classList.add("active");
+                }
+            });
+        }
+        if (specialCares) {
+            specialCares.addEventListener("click", function() {
+                this.classList.add("clicked");
+                if (specialNo) {
+                    specialNo.classList.add("active");
+                }
+            });
+        }
+        if (specialNo) {
+            specialNo.addEventListener("click", function() {
+                this.classList.add("clicked");
+                if (specialBig) {
+                    specialBig.classList.add("active");
+                }
+            });
+}
+        if (specialBig) {
+            specialBig.addEventListener("click", function() {
+                this.classList.add("clicked");
+                if (specialDeal) {
+                    specialDeal.classList.add("white");
+                }
+            });
+        }
+        if (specialDeal) {
+                specialDeal.addEventListener("click", function() {
+                    this.classList.add("clicked");
+                    setTimeout(function() {
+                        window.location.href = "page12.html";
+                    }, 500);
+                });
+            }
+        });
+</script>
+</body>
+</html>
