@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2</title>
+</head>
+<body>
+    <div class="content" id="content">
+        <h1> I just don’t see how<br>a world that makes such <span class="wonderful" id="wonderful">wonderful</span> things could be</h1>
+    </div>
+    <div class="bad-screen" id="bad-screen">BAD</div>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Vollkorn:wght@400&family=Playfair+Display:wght@800&display=swap');
+    
+    body {
+        background: #0F52BA;
+        color: white;
+        font-family: 'Vollkorn', system-ui;
+        text-align: left;
+        padding: 50px;
+        transition: background 0.5s ease;
+    }
+
+    .content {
+        position: absolute;
+        top: 100px;
+        left: 215px;
+        transition: opacity 0.5s ease;
+        z-index: 2;
+    }
+
+    h1 {
+        font-size: 50px;
+        font-weight: 400;
+        letter-spacing: -2.5%;
+        line-height: 1.2;
+    }
+
+    .break {
+        display: block;
+    }
+
+    .wonderful {
+        font-family: 'Lobster', cursive;
+        transition: color 0.3s ease, -webkit-text-stroke 0.3s ease;
+        cursor: pointer;
+    }
+
+    .wonderful:hover {
+        color: #00C7C7;
+    }
+
+    .clicked {
+        color: transparent !important;
+        -webkit-text-stroke: 1px white !important;
+    }
+
+    .bad-screen {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: black;
+        color: white;
+        font-family: 'Playfair Display', serif;
+        font-size: 800px;
+        font-weight: 800;
+        letter-spacing: -12%;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 1s ease;
+        pointer-events: none;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    .show-bad {
+        opacity: 0.25;
+        pointer-events: auto;
+    }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const wonderful = document.getElementById("wonderful");
+    const badScreen = document.getElementById("bad-screen");
+    const body = document.body;
+    
+    wonderful.addEventListener("click", function () {
+        wonderful.classList.add("clicked");
+        body.style.background = "#000000";
+        badScreen.classList.add("show-bad");
+    });
+
+    badScreen.addEventListener("click", function () {
+        window.location.href = "page3.html";
+    });
+});
+</script>
+</body>
+</html>
