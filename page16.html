@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 16</title>
+</head>
+<body>
+    <h1>Flippin' your fins, you don't get too far</h1>
+    <h2>Legs are required for jumping, dancing</h2>
+
+    <div id="new-text" style="position: absolute; opacity: 0; transition: opacity 0.5s ease;"></div>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Vollkorn:wght@400&family=Playfair+Display:wght@800&display=swap');
+    
+    body {
+        background: black;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    h1, h2 {
+        font-family: "Vollkorn", system-ui;
+        font-size: 50px;
+        font-weight: 500;
+        font-style: italic;
+        -webkit-text-stroke: 1px white;
+        text-align: center;
+        line-height: 50px;
+        position: absolute;
+        transition: opacity 0.5s ease;
+        cursor: pointer;
+    }
+
+    h1 {
+        top: 400px;
+        left: 500px;
+        transform: translateX(-50%);
+    }
+
+    h2 {
+        top: 450px;
+        left: 1200px;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .new-text {
+        font-family: "Vollkorn", system-ui;
+        font-size: 50px;
+        font-style: italic;
+        color: #FF66B2;
+        text-align: center;
+        opacity: 1;
+        position: absolute;
+        transition: opacity 0.5s ease;
+    }
+
+    .text1 {
+        top: -120px;
+        left: -680px;
+        transform: translateX(-50%) scaleY(-1);
+        opacity: 80%;
+        filter: blur(4px);
+    }
+
+    .text2 {
+        top: -100px;
+        left: 480px;
+        transform: translateX(-50%);
+    }
+
+    .text3 {
+        top: 250px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .letter {
+        position: absolute;
+        color: #FF66B2;
+        font-size: 50px;
+    }
+</style>
+<script>
+    const h1Text = document.querySelector("h1");
+    const h2Text = document.querySelector("h2");
+    const newText = document.getElementById("new-text");
+
+    h1Text.addEventListener("mouseover", () => {
+        newText.innerHTML = `
+            <div class="new-text text1">Flippin'</div>
+            <div class="new-text text2">jumping</div>
+            <div class="new-text text3">
+                <span class="letter" style="top: -258px; left: 592px;">d</span>
+                <span class="letter" style="top: -248px; left: 620px;">a</span>
+                <span class="letter" style="top: -238px; left: 645px;">n</span>
+                <span class="letter" style="top: -228px; left: 675px;">c</span>
+                <span class="letter" style="top: -238px; left: 700px;">i</span>
+                <span class="letter" style="top: -248px; left: 715px;">n</span>
+                <span class="letter" style="top: -258px; left: 743px;">g</span>
+            </div>
+        `;
+        newText.style.opacity = 1;
+    });
+
+    h2Text.addEventListener("mouseover", () => {
+        newText.innerHTML = `
+            <div class="new-text text1">Flippin'</div>
+            <div class="new-text text2">jumping</div>
+            <div class="new-text text3">
+                <span class="letter" style="top: -258px; left: 592px;">d</span>
+                <span class="letter" style="top: -248px; left: 620px;">a</span>
+                <span class="letter" style="top: -238px; left: 645px;">n</span>
+                <span class="letter" style="top: -228px; left: 675px;">c</span>
+                <span class="letter" style="top: -238px; left: 700px;">i</span>
+                <span class="letter" style="top: -248px; left: 715px;">n</span>
+                <span class="letter" style="top: -258px; left: 743px;">g</span>
+            </div>
+        `;
+        newText.style.opacity = 1;
+    });
+
+    h1Text.addEventListener("mouseout", () => {
+        newText.style.opacity = 0;
+    });
+
+    h2Text.addEventListener("mouseout", () => {
+        newText.style.opacity = 0;
+    });
+
+    document.addEventListener('click', () => {
+            window.location.href = 'page17.html';
+        });
+</script>
+</body>
+</html>
