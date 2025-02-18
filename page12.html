@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 12</title>
+</head>
+<body>
+    <h1 id="main-heading">I want</h1>
+
+    <style>
+        body {
+            background: #000000;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        h1 {
+            font-family: 'Playfair Display', system-ui;
+            font-size: 50px;
+            font-weight: 100;
+            color: white;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+        }
+        .new-text1, .new-text2 {
+            font-family: 'Playfair Display', system-ui;
+            font-weight: bold;
+            letter-spacing: -5%;
+            color: white;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.25s ease-in-out;
+        }
+        .new-text1 {
+            font-size: 150px;
+        }
+        
+        .new-text2 {
+            font-size: 500px;
+        }
+        .new-text1.show {
+            opacity: 100%;
+        }
+        .new-text2.show{
+            opacity: 25%;
+        }
+    </style>
+
+<script>
+    document.getElementById("main-heading").addEventListener("mouseenter", function() {
+
+        this.style.display = 'none';
+
+        let newText1 = document.createElement('div');
+        let newText2 = document.createElement('div');
+
+        newText1.classList.add('new-text1');
+        newText2.classList.add('new-text2');
+
+        newText1.textContent = 'MORE';
+        newText2.textContent = 'MORE';
+
+        document.body.appendChild(newText1);
+        document.body.appendChild(newText2);
+
+        setTimeout(function() {
+            newText1.classList.add('show');
+            newText2.classList.add('show');
+        }, 10);
+    });
+
+        document.body.addEventListener("click", function() {
+            window.location.href = 'page13.html';
+        });
+</script>
+</body>
+</html>
