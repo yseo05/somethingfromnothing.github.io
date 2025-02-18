@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 14</title>
+</head>
+<body>
+    <h1>I wanna see, wanna see'em</h1>
+    <div id="groups" onclick="goToNextPage()">
+        <div id="group" class="group">
+            <h2>
+                <span class="word" style="top: 300px; left: 850px;">d</span>
+                <span class="word" style="top: 340px; left: 865px;">a</span>
+                <span class="word" style="top: 380px; left: 860px;">n</span>
+                <span class="word" style="top: 420px; left: 845px;">c</span>
+                <span class="word" style="top: 465px; left: 835px;">i</span>
+                <span class="word" style="top: 500px; left: 845px;">n</span>
+                <span class="word" style="top: 540px; left: 860px;">g</span>
+            </h2>
+        </div>
+
+        <div id="group" class="group1">
+            <h2>
+                <span class="word" style="top: 300px; left: 850px;">d</span>
+                <span class="word" style="top: 340px; left: 865px;">a</span>
+                <span class="word" style="top: 380px; left: 860px;">n</span>
+                <span class="word" style="top: 420px; left: 845px;">c</span>
+                <span class="word" style="top: 465px; left: 835px;">i</span>
+                <span class="word" style="top: 500px; left: 845px;">n</span>
+                <span class="word" style="top: 540px; left: 860px;">g</span>
+            </h2>
+        </div>
+
+        <div id="group" class="group2">
+            <h2>
+                <span class="word" style="top: 300px; left: 850px;">d</span>
+                <span class="word" style="top: 340px; left: 865px;">a</span>
+                <span class="word" style="top: 380px; left: 860px;">n</span>
+                <span class="word" style="top: 420px; left: 845px;">c</span>
+                <span class="word" style="top: 465px; left: 835px;">i</span>
+                <span class="word" style="top: 500px; left: 845px;">n</span>
+                <span class="word" style="top: 540px; left: 860px;">g</span>
+            </h2>
+        </div>
+    </div>
+</body>
+<style>
+    body {
+        background-color: black;
+        margin: 0;
+        height: 100vh;
+        position: relative;
+    }
+
+    h1 {
+        font-family: "Vollkorn", system-ui;
+        font-size: 40px;
+        font-weight: 100;
+        color: white;
+        position: absolute;
+        top: 250px;
+        left: 850px;
+        transform: translate(-50%, -50%);
+    }
+
+    #groups {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s ease;
+        transform-origin: center;
+    }
+
+    #groups:hover {
+        transform: scale(1.25);
+    }
+
+    #groups:hover .word {
+        color: #FF66B2;
+    }
+
+    .group {
+        position: absolute;
+        top: 50px;
+        left: 0px;
+    }
+
+    .group1 {
+        position: absolute;
+        top: 50px;
+        left: 1850px;
+        transform: scaleX(-1);
+        opacity: 50%;
+    }
+
+    .group2 {
+        position: absolute;
+        top: 50px;
+        left: 1600px;
+        transform: scaleX(-1);
+        opacity: 50%;
+    }
+
+    .word {
+        font-family: 'Lobster', system-ui;
+        font-size: 50px;
+        color: white;
+        position: absolute;
+        transition: color 0.25s ease;
+    }
+</style>
+<script>
+    function goToNextPage() {
+        window.location.href = "page15.html";
+    }
+</script>
+</html>
