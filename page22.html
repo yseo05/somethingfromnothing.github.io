@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 22</title>
+</head>
+<body>
+    <h1>
+        <span class="word" style="top: 100px; left: 100px;">Bright</span>
+        <span class="word" style="top: 180px; left: 250px;">young women</span>
+        <span class="word" style="top: 260px; left: 100px;">Sick of</span>
+        <span class="word" style="top: 340px; left: 250px;">swimmin'</span>
+    </h1>
+    <div id="new-text-container"></div>
+
+<style>
+    body {
+        background: #0F52BA;
+        margin: 0;
+        height: 100vh;
+    }
+
+    .word {
+        font-family: 'Vollkorn', system-ui;
+        font-style: italic;
+        font-size: 100px;
+        font-weight: 500;
+        position: absolute;
+        color: white;
+        cursor: pointer;
+    }
+
+    #new-text-container {
+        position: absolute;
+        bottom: 50px;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .new-text {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 100px;
+        color: white;
+        transition: transform 1s ease;
+    }
+
+    .rotated {
+        transform: rotate(90deg);
+    }
+
+    .stand-text {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 1s ease, transform 1s ease;
+        cursor: pointer;
+    }
+
+    .stand-text.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+<script>
+    let clickCount = 0;
+    const newTextContainer = document.getElementById("new-text-container");
+
+    document.body.addEventListener("click", function() {
+        clickCount++;
+
+        if (clickCount === 1) {
+            const newText = document.createElement("div");
+            newText.classList.add("new-text");
+            newText.textContent = "Ready to";
+            newTextContainer.innerHTML = "";
+            newTextContainer.appendChild(newText);
+        }
+
+        else if (clickCount === 2) {
+            const newText = document.createElement("div");
+            newText.classList.add("new-text", "rotated");
+            newText.textContent = "Ready to stand";
+            newTextContainer.innerHTML = "";
+            newTextContainer.appendChild(newText);
+
+        }
+        else if (clickCount >= 3) {
+            window.location.href = "page23.html";
+        }
+    });
+</script>
+</body>
+</html>
