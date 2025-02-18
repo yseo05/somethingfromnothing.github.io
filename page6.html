@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 6</title>
+</head>
+<body>
+    <h1>
+        <span class="word" style="top: 450px; left: 300px;">Look at this</span>
+        <span class="rword" id="trove" style="top: 450px; left: 1225px;">trove</span>
+        <span class="rword" id="treasures" style="top: 500px; left: 300px;">Treasures</span>
+        <span class="word" style="top: 500px; left: 1200px;">untold</span>
+    </h1>
+
+    <div id="glowing-circle" class="glowing-circle"></div>
+
+<style>
+    body {
+        background: #000000;
+        color: white;
+    }
+
+    .word {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 35px;
+        font-weight: 1000;
+        position: absolute;
+        color: white;
+    }
+
+    .rword {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 35px;
+        font-weight: 100;
+        position: absolute;
+        color: white;
+        cursor: pointer;
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-decoration-color: #FF66B2;
+        transition: text-decoration-color 0.3s ease, color 0.3s ease;
+    }
+
+    .rword:hover {
+    text-decoration-color: transparent;
+    color: #FF66B2;
+    }
+
+    .hovered {
+        font-family: 'Parisienne', system-ui;
+        font-size: 45px;
+        color: #FF66B2;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: translate(-50%, -50%) scale(1);
+            box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.5);
+        }
+        50% {
+            transform: translate(-50%, -50%) scale(1.2);
+            box-shadow: 0 0 30px 20px rgba(255, 255, 255, 0.65);
+        }
+        100% {
+            transform: translate(-50%, -50%) scale(1);
+            box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    .glowing-circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: pulse 2s infinite;
+        box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.5);
+        filter: blur(8px);
+        display: none;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    const treasures = document.getElementById('treasures');
+    const trove = document.getElementById('trove');
+    const glowingCircle = document.getElementById('glowing-circle');
+
+    treasures.addEventListener('mouseover', function() {
+        treasures.classList.add('hovered');
+        checkBothHovered();
+    });
+
+    trove.addEventListener('mouseover', function() {
+        trove.classList.add('hovered');
+        checkBothHovered();
+    });
+
+    treasures.addEventListener('mouseout', function() {
+        checkBothHovered();
+    });
+
+    trove.addEventListener('mouseout', function() {
+        checkBothHovered();
+    });
+
+    function checkBothHovered() {
+        if (treasures.classList.contains('hovered') && trove.classList.contains('hovered')) {
+            glowingCircle.style.display = 'block';
+        } else {
+            glowingCircle.style.display = 'none';
+        }
+    }
+
+    glowingCircle.addEventListener('click', function() {
+        window.location.href = 'page7.html';
+    });
+</script>
+</body>
+</html>
