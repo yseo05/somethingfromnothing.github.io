@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 3</title>
+</head>
+<body>
+    <div class="text-container"></div>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Vollkorn:wght@700&display=swap');
+        
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #0F52BA;
+        font-family: 'Vollkorn', serif;
+        text-align: left;
+        height: 100vh;
+    }
+
+    h1 {
+        position: absolute;
+        margin: 0;
+        font-size: 100px;
+        font-weight: 700;
+        letter-spacing: -2.5%;
+        line-height: 100px;
+        white-space: nowrap;
+        color: transparent;
+        -webkit-text-stroke: 1.5px white;
+    }    
+
+    .hover-look,
+    .highlight-at-this,
+    .highlight-stuff,
+    .highlight-isnt,
+    .highlight-it,
+    .highlight-neat {
+        cursor: pointer;
+    }
+
+    .hover-look:hover {
+        color: white !important;
+        -webkit-text-stroke: 0px !important;
+    }
+    .hover-look.clicked {
+        color: #FF66B2 !important;
+        -webkit-text-stroke: 0px !important;
+    }
+
+    .highlight-at-this {
+        color: transparent !important;
+        -webkit-text-stroke: 1.5px white !important;
+        cursor: pointer;
+    }
+
+    .highlight-at-this.active {
+        color: white !important;
+        -webkit-text-stroke: 0px !important;
+    }
+
+    .highlight-at-this.clicked {
+        color: #FF66B2 !important;
+        -webkit-text-stroke: 0px !important;
+    }
+
+    .highlight-stuff {
+        color: transparent !important;
+        -webkit-text-stroke: 1.5px white !important;
+        cursor: pointer;
+    }
+
+    .highlight-stuff.active {
+        color: white !important;
+        -webkit-text-stroke: 0px !important;
+    }
+
+    .highlight-stuff.clicked {
+        color: #FF66B2 !important;
+        -webkit-text-stroke: 0px !important;
+    }
+
+    .highlight-isnt {
+        color: transparent !important;
+        -webkit-text-stroke: 1.5px white !important;
+        cursor: pointer;
+    }
+
+    .highlight-isnt.active {
+        color: white !important;
+        -webkit-text-stroke: 0px !important;
+    }
+
+    .highlight-isnt.clicked {
+        color: #FF66B2 !important;
+        -webkit-text-stroke: 0px !important;
+    }
+
+    .highlight-it {
+        color: transparent !important;
+        -webkit-text-stroke: 1.5px white !important;
+    }
+
+    .highlight-it.active {
+        color: white !important;
+        -webkit-text-stroke: 0px !important;
+    }
+
+    .highlight-it.clicked {
+        color: #FF66B2 !important;
+        -webkit-text-stroke: 0px !important;
+    }
+
+    .highlight-neat {
+        color: transparent !important;
+        -webkit-text-stroke: 1.5px white !important;
+    }
+
+    .highlight-neat.white {
+        color: white !important;
+        -webkit-text-stroke: 0px !important;
+    }
+
+    .highlight-neat.clicked {
+        color: #FF66B2 !important;
+        -webkit-text-stroke: 0px !important;
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let container = document.querySelector(".text-container");
+        let oddText = "Look at this stuff Isn't it neat Look at this stuff Isn't it neat";
+        let evenText = "Isn't it neat Look at this stuff Isn't it neat Look at this stuff";
+        let thirdLineAtThis;
+        let secondLineStuff;
+        let seventhLineIsnt;
+        let eighthLineIt;
+        
+        for (let i = 0; i < 10; i++) {
+            let line = document.createElement("h1");
+            
+            if (i === 0) {
+                line.innerHTML = oddText.replace('Look', '<span class="hover-look" id="special-look">Look</span>');
+            } else if (i === 2) {
+                thirdLineAtThis = document.createElement('span');
+                thirdLineAtThis.classList.add('highlight-at-this');
+                thirdLineAtThis.textContent = 'at this';
+                thirdLineAtThis.id = "special-at-this";
+                line.innerHTML = oddText.replace('at this', thirdLineAtThis.outerHTML);
+            } else if (i === 1) {
+                secondLineStuff = document.createElement('span');
+                secondLineStuff.classList.add('highlight-stuff');
+                secondLineStuff.textContent = 'stuff';
+                secondLineStuff.id = "special-stuff";
+                line.innerHTML = evenText.replace('stuff', secondLineStuff.outerHTML);
+            } else if (i === 6) {
+                seventhLineIsnt = document.createElement('span');
+                seventhLineIsnt.classList.add('highlight-isnt');
+                seventhLineIsnt.textContent = "Isn't";
+                seventhLineIsnt.id = "special-isnt";
+                line.innerHTML = oddText.replace("Isn't", seventhLineIsnt.outerHTML);
+            } else if (i === 7) {
+                eighthLineIt = document.createElement('span');
+                eighthLineIt.classList.add('highlight-it');
+                eighthLineIt.textContent = "it";
+                eighthLineIt.id = "special-it";
+                line.innerHTML = evenText.replace("it", eighthLineIt.outerHTML);
+            } else if (i === 9) {
+                tenthLineNeat = document.createElement('span');
+                tenthLineNeat.classList.add('highlight-neat');
+                tenthLineNeat.textContent = "neat";
+                tenthLineNeat.id = "special-neat";
+                line.innerHTML = evenText.replace("neat", tenthLineNeat.outerHTML);
+
+            } else {
+                line.innerHTML = (i % 2 !== 0) ? evenText : oddText;
+            }
+            
+            line.style.top = (i * 100) + "px";
+            container.appendChild(line);
+        }
+        
+        let specialLook = document.getElementById("special-look");
+        let specialAtThis = document.getElementById("special-at-this");
+        let specialStuff = document.getElementById("special-stuff");
+        let specialIsnt = document.getElementById("special-isnt");
+        let specialIt = document.getElementById("special-it");
+        let specialNeat = document.getElementById("special-neat");
+        
+        if (specialLook) {
+            specialLook.addEventListener("click", function() {
+                this.classList.add("clicked");
+                if (specialAtThis) {
+                    specialAtThis.classList.add("active");
+                }
+            });
+        }
+        if (specialAtThis) {
+            specialAtThis.addEventListener("click", function() {
+                this.classList.add("clicked");
+                if (specialStuff) {
+                    specialStuff.classList.add("active");
+                }
+            });
+        }
+        if (specialStuff) {
+            specialStuff.addEventListener("click", function() {
+                this.classList.add("clicked");
+                if (specialIsnt) {
+                    specialIsnt.classList.add("active");
+                }
+            });
+        }
+        if (specialIsnt) {
+            specialIsnt.addEventListener("click", function() {
+                this.classList.add("clicked");
+                if (specialIt) {
+                    specialIt.classList.add("active");
+                }
+            });
+        }
+        if (specialIt) {
+            specialIt.addEventListener("click", function() {
+                this.classList.add("clicked");
+                if (specialNeat) {
+                    specialNeat.classList.add("white");
+                }
+            });
+        }
+
+        if (specialNeat) {
+            specialNeat.addEventListener("click", function() {
+                this.classList.add("clicked");
+                setTimeout(function() {
+                    window.location.href = "page4.html"; 
+                }, 500);
+            });
+        }
+    });
+</script>
+</body>
+</html>
