@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 7</title>
+</head>
+<body>
+    <h1>C&nbsp;&nbsp;&nbsp;avern</h1>
+    <h2>
+        <span class="letter" style="top: 300px; left: 200px;">How many w</span>
+        <span class="letter" style="top: 300px; left: 550px;">could one</span>
+        <span class="letter" id="holdText" style="top: 750px; left: 1450px; opacity: 0;">hold?</span>
+    </h2>
+    <h3>
+        <span class="i-letter" style="top: 325px; left: 425px;">o</span>
+        <span class="i-letter" style="top: 375px; left: 450px;">n</span>
+        <span class="i-letter" style="top: 425px; left: 450px;">d</span>
+        <span class="i-letter" style="top: 475px; left: 425px;">e</span>
+        <span class="i-letter" style="top: 525px; left: 400px;">r</span>
+        <span class="i-letter" style="top: 550px; left: 350px;">s</span>
+    </h3>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Vollkorn:wght@700&display=swap');
+    
+    body {
+        background: #0F52BA;
+    }
+
+    h1 {
+        font-family: "Vollkorn", system-ui;
+        font-size: 350px;
+        color: white;
+        opacity: 30%;
+        position: absolute;
+        top: 100px;
+        left: 180px;
+    }
+
+    .letter {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 35px;
+        font-weight: 100;
+        position: absolute;
+        color: white;
+    }
+
+    .i-letter {
+        font-family: 'Vollkorn', system-ui;
+        font-size: 35px;
+        position: absolute;
+        color: white;
+        opacity: 0;
+        text-shadow: 0 0 10px #FF66B2, 0 0 20px #FF66B2;
+    }
+
+    #holdText {
+        cursor: pointer;
+        opacity: 0;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .pulse-animation {
+        animation: pulse 1s infinite;
+    }
+</style>
+<script>
+    const holdText = document.getElementById('holdText');
+
+    const letters = document.querySelectorAll('.i-letter');
+    let delay = 250;
+
+    letters.forEach((letter, index) => {
+        setTimeout(() => {
+            letter.style.opacity = 1;
+        }, delay * index);
+    });
+
+    setTimeout(() => {
+        holdText.style.opacity = 1;
+        holdText.classList.add('pulse-animation');
+    }, delay * letters.length + 1000);
+
+    holdText.addEventListener('click', function() {
+        window.location.href = 'page8.html';
+    });
+</script>
+</body>
+</html>
